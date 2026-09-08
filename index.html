@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DIALI IA | Prototipo corporativo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: "#0f2742",
+            tech: "#0b7bbd",
+            cyan: "#18a8d8",
+            paper: "#f6f8fb",
+            line: "#d9e2ec"
+          },
+          boxShadow: {
+            panel: "0 18px 45px rgba(15, 39, 66, .10)"
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-paper text-slate-900">
+  <div id="toastStack" class="fixed right-4 top-4 z-[80] grid gap-2"></div>
+
+  <main id="loginView" class="min-h-screen">
+    <section class="grid min-h-screen lg:grid-cols-[1fr_520px]">
+      <div class="relative flex min-h-[42vh] items-end overflow-hidden bg-navy p-6 text-white sm:p-10 lg:min-h-screen">
+        <img src="assets/login.jpg" alt="Centro corporativo digital" class="absolute inset-0 h-full w-full object-cover opacity-30">
+        <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/88 to-navy/35"></div>
+        <div class="relative max-w-3xl pb-4">
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-sm font-semibold text-white/90">
+            <i data-lucide="brain-circuit" class="h-4 w-4"></i>
+            Prototipo frontend con IA multimodal simulada
+          </span>
+          <h1 class="mt-5 text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">DIALI IA</h1>
+          <p class="mt-4 max-w-2xl text-lg leading-8 text-white/82">Sistema inteligente multimodal de optimizacion y asistencia operativa corporativa para documentos, soporte, automatizaciones, RAG y analitica predictiva.</p>
+          <div class="mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
+            <div class="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur"><strong>RAG</strong><p class="mt-1 text-sm text-white/75">Respuestas con evidencia corporativa.</p></div>
+            <div class="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur"><strong>OCR/NLP</strong><p class="mt-1 text-sm text-white/75">Clasificacion y extraccion simulada.</p></div>
+            <div class="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur"><strong>Prediccion</strong><p class="mt-1 text-sm text-white/75">Riesgos, anomalias y recomendaciones.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center p-5">
+        <form id="loginForm" class="panel w-full max-w-md p-6 sm:p-8" novalidate>
+          <div class="mb-6">
+            <p class="text-sm font-black uppercase text-tech">Acceso simulado</p>
+            <h2 class="mt-2 text-2xl font-black text-navy">Iniciar sesion</h2>
+            <p class="mt-2 text-sm text-slate-600">Usa cualquier usuario de demostracion con clave <strong>Diali2026!</strong>.</p>
+          </div>
+          <div id="loginBlocked" class="mb-4 hidden rounded-lg border border-red-200 bg-red-50 p-3 text-sm font-semibold text-red-800"></div>
+          <label class="form-field">
+            <span>Usuario de demostracion</span>
+            <select id="loginUser" class="form-control" required></select>
+            <small class="field-error"></small>
+          </label>
+          <label class="form-field">
+            <span>Contrasena</span>
+            <input id="loginPassword" class="form-control" type="password" value="Diali2026!" autocomplete="current-password" required>
+            <small class="field-error"></small>
+          </label>
+          <label class="mt-3 flex items-start gap-3 rounded-lg border border-line bg-slate-50 p-3 text-sm text-slate-700">
+            <input id="loginConsent" type="checkbox" class="mt-1 h-4 w-4 accent-tech" checked>
+            <span>Acepto el procesamiento simulado de datos para fines academicos del prototipo.</span>
+          </label>
+          <button class="btn btn-primary mt-5 w-full" type="submit">
+            <i data-lucide="log-in" class="h-5 w-5"></i>
+            Ingresar
+          </button>
+          <button class="btn btn-ghost mt-3 w-full" type="button" data-action="recover-password">
+            <i data-lucide="key-round" class="h-5 w-5"></i>
+            Recuperar contrasena
+          </button>
+          <p class="mt-5 text-xs leading-5 text-slate-500">La seguridad se representa visualmente. No hay autenticacion real, backend ni cifrado productivo.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="appView" class="hidden min-h-screen">
+    <header class="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur lg:hidden">
+      <div class="flex items-center justify-between px-4 py-3">
+        <button id="mobileMenuButton" class="icon-btn" type="button" aria-label="Abrir menu"><i data-lucide="menu" class="h-5 w-5"></i></button>
+        <strong class="text-navy">DIALI IA</strong>
+        <button class="icon-btn" type="button" data-action="logout" aria-label="Cerrar sesion"><i data-lucide="log-out" class="h-5 w-5"></i></button>
+      </div>
+      <nav id="mobileNav" class="hidden border-t border-line p-3"></nav>
+    </header>
+
+    <div id="shellGrid" class="lg:grid lg:min-h-screen lg:grid-cols-[280px_1fr]">
+      <aside id="sidebar" class="hidden border-r border-white/10 bg-navy text-white lg:block">
+        <div class="sticky top-0 flex h-screen flex-col p-4">
+          <div class="mb-5 flex items-center gap-3 px-1">
+            <div class="grid h-11 w-11 place-items-center rounded-lg bg-cyan text-navy">
+              <i data-lucide="sparkles" class="h-6 w-6"></i>
+            </div>
+            <div class="brand-copy">
+              <p class="font-black leading-tight">DIALI IA</p>
+              <p id="activeUserLabel" class="text-xs text-white/65"></p>
+            </div>
+          </div>
+          <button id="collapseSidebar" class="btn-sidebar mb-3" type="button" data-action="collapse-sidebar"><i data-lucide="panel-left-close" class="h-5 w-5"></i><span>Contraer</span></button>
+          <nav id="desktopNav" class="space-y-1 overflow-y-auto pr-1"></nav>
+          <button type="button" data-action="logout" class="btn-sidebar mt-auto"><i data-lucide="log-out" class="h-5 w-5"></i><span>Cerrar sesion</span></button>
+        </div>
+      </aside>
+
+      <section class="min-w-0">
+        <header class="hidden border-b border-line bg-white px-6 py-4 lg:block">
+          <div class="flex items-center justify-between gap-4">
+            <div class="relative max-w-xl flex-1">
+              <i data-lucide="search" class="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-slate-400"></i>
+              <input id="globalSearch" class="form-control pl-10" placeholder="Buscar documentos, tickets, clientes o auditoria">
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="icon-btn relative" data-section="profile" type="button" aria-label="Notificaciones">
+                <i data-lucide="bell" class="h-5 w-5"></i>
+                <span id="notificationDot" class="absolute right-2 top-2 h-2 w-2 rounded-full bg-red-500"></span>
+              </button>
+              <select id="roleSwitcher" class="form-control w-56"></select>
+              <button class="btn btn-ghost" type="button" data-action="expire-session"><i data-lucide="timer-off" class="h-5 w-5"></i>Expirar</button>
+            </div>
+          </div>
+        </header>
+        <main id="content" class="mx-auto max-w-[1500px] p-4 sm:p-6 lg:p-8"></main>
+      </section>
+    </div>
+  </div>
+
+  <div id="modalRoot" class="fixed inset-0 z-[70] hidden items-center justify-center bg-navy/70 p-4"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="data/seed.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
