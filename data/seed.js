@@ -59,7 +59,10 @@ window.DIALI_SEED = {
     { id: 2, name: "Contratos activos", indexed: 941, updated: "2026-09-01", status: "Indexada", confidentiality: "Confidencial", permissions: "Admin, Supervisor, Analista" },
     { id: 3, name: "Base soporte CRM", indexed: 420, updated: "2026-09-05", status: "Indexando", confidentiality: "Interna", permissions: "Soporte, Supervisor, Admin" },
     { id: 4, name: "Reportes financieros", indexed: 267, updated: "2026-08-31", status: "Indexada", confidentiality: "Restringida", permissions: "Admin, Supervisor, Analista, Auditor" },
-    { id: 5, name: "FAQ clientes", indexed: 89, updated: "2026-09-04", status: "Indexada", confidentiality: "Publica", permissions: "Clientes y empleados" }
+    { id: 5, name: "FAQ clientes", indexed: 89, updated: "2026-09-04", status: "Indexada", confidentiality: "Publica", permissions: "Clientes y empleados" },
+    { id: 6, name: "Manuales operativos", indexed: 0, updated: "2026-09-20", status: "Pendiente", confidentiality: "Interna", permissions: "Todos los empleados" },
+    { id: 7, name: "Archivo legal historico", indexed: 310, updated: "2026-09-18", status: "Error de indexacion", error: "Formato de origen no compatible", confidentiality: "Confidencial", permissions: "Admin, Supervisor, Analista" },
+    { id: 8, name: "Procedimientos obsoletos", indexed: 74, updated: "2026-08-10", status: "Desactivada", confidentiality: "Interna", permissions: "Todos los empleados" }
   ],
   integrations: [
     { id: 1, name: "ERP financiero", type: "ERP", status: "Conectada", lastSync: "2026-09-06 21:20", encrypted: true },

@@ -1,5 +1,7 @@
 # Analisis de DIALI IA
 
+> Actualización 2026-09: la lógica de estados se desacopló en un motor declarativo único. Cada transición valida estado origen, rol y campos requeridos, actualiza el historial de la entidad y crea un registro de auditoría. La UI consume esas reglas y LocalStorage conserva el estado demo.
+
 ## Problema
 
 La operacion corporativa recibe informacion fragmentada en correos, contratos, facturas, reportes, audios y tickets. La ausencia de contexto unico genera respuestas lentas, reprocesos, errores de captura y baja visibilidad ejecutiva.

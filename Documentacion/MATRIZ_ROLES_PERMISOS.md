@@ -1,5 +1,7 @@
 # Matriz de roles y permisos
 
+Las restricciones se validan nuevamente dentro de `DialiStateMachine.transition`; ocultar un botón no se considera un control de seguridad. Auditor permanece en solo lectura. Administrador posee control total; Supervisor aprueba, asigna, ejecuta y supervisa; Analista procesa/corrige/indexa; Soporte opera tickets; Empleado y Cliente actúan únicamente sobre funciones y solicitudes autorizadas.
+
 | Capacidad | Admin | Supervisor | Analista | Soporte | Empleado | Auditor | Cliente |
 |---|---|---|---|---|---|---|---|
 | Dashboard | CRUD | R | R | R | R | R | R |

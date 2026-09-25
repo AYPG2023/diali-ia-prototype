@@ -1,5 +1,13 @@
 # Requerimientos
 
+## Criterios de aceptación de flujos
+
+- Toda transición inválida o no autorizada se rechaza sin modificar LocalStorage y queda auditada como rechazada.
+- Rechazar, escalar, resolver, asignar y descartar exigen sus datos obligatorios.
+- El procesamiento y la indexación impiden doble ejecución y muestran un estado temporal.
+- El asistente usa exclusivamente fuentes `Indexada` que el rol puede consultar; ante falta de evidencia escala la conversación.
+- Cada cambio válido registra actor, rol, módulo, registro, estado anterior/nuevo, motivo, resultado, fecha e IP simulada.
+
 ## Funcionales
 
 1. Permitir acceso demo por rol con consentimiento y bloqueo temporal por intentos fallidos.

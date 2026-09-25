@@ -200,6 +200,13 @@ textarea:focus-visible {
 .badge-aprobado,
 .badge-exitoso { background: #dcfce7; color: #166534; }
 
+.processing-label { display: block; margin-top: .35rem; color: #6d28d9; font-weight: 800; }
+.timeline { margin-top: 1rem; border-left: 2px solid #d9e2ec; padding-left: 1rem; }
+.timeline li { position: relative; margin-bottom: 1rem; padding-left: .35rem; }
+.timeline li::before { content: ""; position: absolute; left: -1.45rem; top: .3rem; width: .75rem; height: .75rem; border-radius: 999px; background: #0b7bbd; }
+.timeline small { display: block; margin-top: .2rem; color: #64748b; }
+.timeline p { margin-top: .3rem; color: #334155; }
+
 .eyebrow {
   color: #0b7bbd;
   font-size: .72rem;

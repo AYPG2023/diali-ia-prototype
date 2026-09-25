@@ -1,21 +1,21 @@
 # DIALI IA
 
-Prototipo frontend del sistema inteligente multimodal de optimizacion y asistencia operativa corporativa.
+Prototipo frontend corporativo con flujos controlados para documentos, RAG, tickets, automatizaciones, alertas y conversaciones.
 
-## Ejecucion
+## Ejecución
 
-Abre `index.html` en el navegador. Tambien puedes servir la carpeta con cualquier servidor estatico.
+No requiere compilación. Ejecuta `python -m http.server 8000` desde la raíz y abre `http://localhost:8000`. La clave demo es `Diali2026!`; el selector incluye un usuario por rol. Para restaurar los datos, elimina `diali-ia-demo-v1` de LocalStorage.
 
-Credenciales demo: cualquier usuario disponible en el selector y `Diali2026!`.
+## Arquitectura
 
-## Estructura
+- `assets/js/state-machine.js`: fuente única de transiciones, roles y precondiciones.
+- `assets/js/app.js`: presentación, eventos, persistencia y simulaciones.
+- `data/seed.js`: casos de demostración normales, de revisión y error.
+- `assets/css/styles.css`: diseño responsive, estados, progreso y líneas de tiempo.
+- `Documentacion/`: análisis, requisitos, permisos, diagramas y flujos.
 
-- `index.html`: shell de login y aplicacion.
-- `assets/css/styles.css`: sistema visual y responsive.
-- `assets/js/app.js`: estado, renderizado, permisos, validaciones y acciones.
-- `data/seed.js`: datos iniciales del prototipo.
-- `ANALISIS.md`, `MATRIZ_ROLES_PERMISOS.md`, `REQUERIMIENTOS.md`, `FLUJOS_Y_ESTADOS.md`: entregables de analisis.
+Toda mutación de estado pasa por el motor central, vuelve a validar el rol y genera auditoría. LocalStorage solo corresponde al prototipo; producción requiere API, identidad y autorización en servidor.
 
-## Alcance
+## Simulaciones
 
-La IA, OCR, audio, ERP, CRM, RPA y almacenamiento son simulaciones frontend. El codigo deja definidos los contratos, estados y puntos de integracion para una implementacion con API, identidad corporativa, colas y servicios especializados.
+OCR, NLP, embeddings, almacenamiento vectorial, LLM, audio, ERP/CRM, RPA, IP, SLA y predicción son simulados en el navegador.
