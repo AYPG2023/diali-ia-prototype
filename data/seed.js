@@ -77,6 +77,9 @@ window.DIALI_SEED = {
     { id: 2, user: "Cliente Norte SA", status: "Escalada a agente humano", source: "FAQ clientes", confidence: 54, messages: 4 },
     { id: 3, user: "Andrea Lima", status: "Resuelta", source: "Reportes financieros", confidence: 88, messages: 8 }
   ],
+  approvalRequests: [
+    { id: "approval-1", requester: "Andrea Lima", question: "¿Cual es el margen neto y la proyeccion financiera de Q3?", source: "Reportes financieros", confidentiality: "Restringida", status: "Pendiente", adminApproval: "Pendiente", managerApproval: "Pendiente", createdAt: "2026-09-06 14:20", resolvedAt: "" }
+  ],
   audit: [
     { id: 1, user: "Valeria Rivas", action: "Aprobar documento", module: "Documentos", record: "Contrato marco Retail Norte.pdf", before: "Procesado", after: "Aprobado", date: "2026-09-06 09:15", ip: "10.20.4.11", result: "Exitoso" },
     { id: 2, user: "Mario Escobar", action: "Escalar ticket", module: "Tickets", record: "Incidente critico API CRM", before: "Asignado", after: "Escalado", date: "2026-09-06 10:01", ip: "10.20.4.44", result: "Exitoso" },
